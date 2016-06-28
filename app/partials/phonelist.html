@@ -1,0 +1,36 @@
+        <div class="col-md-3" style="margin-top:25px;">
+  			<div class="input-group">
+			  <input type="text" class="form-control" ng-model="search.$" placeholder="Search" aria-describedby="search">
+			  <span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+			</div>
+			<div class="form-horizontal" style="margin-top:15px;">
+			  <div class="form-group">
+			    <label class="col-sm-3 control-label">Sort By</label>
+			    <div class="col-sm-9">
+			    	<select  class="form-control" ng-model="phones.order">
+					  <option value="name">Alphabetical</option>
+					  <option value="age">Newest</option>
+					</select>
+			    </div>
+			  </div>
+			</div>
+  		</div>
+  		<div class="col-md-9" style="margin-top:25px;" >
+  			<div ng-repeat="list in phones | filter:search | orderBy: phones.order" ng-animate=" 'animate' ">
+	  			<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <a href="/#!/phones/{{list.id}}">
+				    	<h3 class="panel-title">{{list.name}}</h3>
+				    </a>
+				  </div>
+				  <div class="panel-body">
+				  	<div class="col-md-2" align="center">
+				  		<img class="img-rounded img-responsive" ng-src="{{list.imageUrl}}">
+				  	</div>
+				  	<div class="col-md-10">
+				  		<p style=" vertical-align: middle;">{{list.snippet}}</p>
+				  	</div>
+				  </div>
+				</div>
+			</div>
+  		</div>
